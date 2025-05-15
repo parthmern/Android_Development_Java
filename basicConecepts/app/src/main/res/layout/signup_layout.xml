@@ -32,12 +32,15 @@
         android:text="Name" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/name_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
+        android:padding="12dp"
+        android:layout_marginTop="10dp"
         android:hint="Enter your name "
+        android:background="@drawable/custom_input_text_field_bg"
         android:inputType="text" />
 
     <TextView
@@ -45,13 +48,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginTop="10dp"
         android:text="Password" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/custom_input_text_field_bg"
         android:ems="10"
         android:inputType="textPassword" />
 
@@ -60,15 +65,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginTop="10dp"
         android:text="write something about yourself" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/about_edit_text"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="1"
         android:ems="10"
         android:gravity="start|top"
+        android:background="@drawable/custom_input_text_field_bg"
         android:inputType="textMultiLine" />
 
     <TextView
@@ -76,9 +83,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginTop="10dp"
         android:text="Select gender" />
 
     <RadioGroup
+        android:id="@+id/gender_radio_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center|center_horizontal|center_vertical"
@@ -86,13 +95,13 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/gender_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/gender_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female" />
@@ -103,6 +112,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginTop="10dp"
         android:text="interested courses" />
 
     <LinearLayout
@@ -112,21 +122,21 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/java_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Java" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/python_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Python" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/js_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -143,7 +153,7 @@
         android:padding="5dp">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -152,7 +162,7 @@
             app:rippleColor="#663838" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/clear_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
