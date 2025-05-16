@@ -29,7 +29,7 @@
             android:textSize="@dimen/_20sdp" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/main_logoutBtn"
             android:layout_width="139dp"
             android:layout_height="@dimen/_50sdp"
             android:src="@drawable/logout" />
