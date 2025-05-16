@@ -25,7 +25,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/splash_logoNameImg"
         android:layout_width="@dimen/_337sdp"
         android:layout_height="@dimen/_103sdp"
         android:fontFamily="@font/poppins_regular"
@@ -37,6 +37,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+    <TextView
+        android:id="@+id/splash_footerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Messanger App"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.example.chatapp;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,6 +42,8 @@ public class registration extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
 
+    ProgressDialog progressDialog;
+
 
     Uri imageURI;
     String imageuri;
@@ -54,6 +58,11 @@ public class registration extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // prog
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Creating account");
+        progressDialog.setCancelable(false);
 
         USERNAME = findViewById(R.id.rgusername);
         LOGINBTN = findViewById(R.id.rgloginBtn);
@@ -86,8 +95,10 @@ public class registration extends AppCompatActivity {
                 String statuss = "Hey i am using this app";
 
                 if (TextUtils.isEmpty(namee) || TextUtils.isEmpty(emaill) || TextUtils.isEmpty(passwordd) || TextUtils.isEmpty(passwordd) || TextUtils.isEmpty(repasswordd) || TextUtils.isEmpty(statuss)) {
+                    progressDialog.dismiss();
                     Toast.makeText(registration.this, "Please enter valid info", Toast.LENGTH_SHORT).show();
                 } else if (!passwordd.equals(repasswordd)) {
+                    progressDialog.dismiss();
                     REPASSSWORD.setError("pass not matching");
                 } else {
                     auth.createUserWithEmailAndPassword(emaill, passwordd)
@@ -114,6 +125,7 @@ public class registration extends AppCompatActivity {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if (task.isSuccessful()) {
+                                                            progressDialog.show();
                                                             Toast.makeText(registration.this, "User registered successfully!", Toast.LENGTH_SHORT).show();
                                                             Intent intent = new Intent(registration.this, MainActivity.class);
                                                             startActivity(intent);

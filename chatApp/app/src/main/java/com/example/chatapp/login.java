@@ -1,5 +1,6 @@
 package com.example.chatapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,12 +27,20 @@ public class login extends AppCompatActivity {
     private Button button;
     private FirebaseAuth auth;
 
+    ProgressDialog progressDialog;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // PROGRESS
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait ...");
+        progressDialog.setCancelable(false);
+
 
         email = findViewById(R.id.editTextLogEmail);
         password = findViewById(R.id.editTextLogPassword);
@@ -46,8 +55,10 @@ public class login extends AppCompatActivity {
                 String Pass = password.getText().toString();
 
                 if(TextUtils.isEmpty(Email)){
+                    progressDialog.dismiss();
                     Toast.makeText(login.this, "Enter email", Toast.LENGTH_SHORT).show();
                 }else if(TextUtils.isEmpty(Pass)){
+                    progressDialog.dismiss();
                     Toast.makeText(login.this, "Enter password", Toast.LENGTH_SHORT).show();
                 }else{
                     auth.signInWithEmailAndPassword(Email, Pass)
@@ -55,6 +66,7 @@ public class login extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        progressDialog.show();
                                         Intent intent = new Intent(login.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
